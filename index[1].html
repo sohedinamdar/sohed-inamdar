@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="SunSync — Smart Solar. Smarter Tracking. Automatic solar panel tracking technology.">
+<title>SunSync | Smart Solar. Smarter Tracking.</title>
+<style>
+:root{--bg:#07140d;--panel:#0d2114;--panel2:#102719;--line:#294b32;--text:#eef8f0;--muted:#a9bcae;--green:#7ee58b;--yellow:#ffd34d;--blue:#4bb7e8}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+a{text-decoration:none;color:inherit}.container{width:min(1180px,92%);margin:auto}
+nav{position:sticky;top:0;z-index:100;background:rgba(7,20,13,.94);backdrop-filter:blur(14px);border-bottom:1px solid #1e3926}
+.navin{height:72px;display:flex;align-items:center;justify-content:space-between}.logo{font-size:25px;font-weight:900;color:var(--green)}.logo span{color:var(--yellow)}
+nav ul{display:flex;gap:20px;list-style:none;font-size:14px;color:#c9d9cc}nav a:hover{color:var(--yellow)}
+.hero{min-height:calc(100vh - 72px);display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:55px;padding:80px 0;background:radial-gradient(circle at 85% 20%,#174525 0,transparent 37%)}
+.badge{display:inline-block;border:1px solid #3a6544;background:#102719;border-radius:99px;padding:7px 13px;color:#a9f0b2;font-size:12px;font-weight:800;margin-bottom:20px}
+h1{font-size:clamp(45px,6vw,76px);line-height:1.02;letter-spacing:-2px;margin-bottom:22px}h1 span{color:var(--green)}
+.hero p{font-size:18px;color:var(--muted);max-width:650px;margin-bottom:30px}.btn{display:inline-block;background:var(--green);color:#061109;padding:12px 18px;border-radius:10px;font-weight:900;margin:4px 8px 4px 0}.btn.alt{background:var(--panel2);color:#def1e1;border:1px solid var(--line)}
+.visual{background:#0b1e12;border:1px solid var(--line);border-radius:24px;padding:20px;box-shadow:0 30px 70px #0008}.vtop{display:flex;justify-content:space-between;margin-bottom:15px}.online{color:var(--green);font-size:12px}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);margin-right:6px}
+.scene{height:330px;border-radius:17px;position:relative;overflow:hidden;background:linear-gradient(145deg,#173a54,#07151f)}
+.sun{position:absolute;right:35px;top:30px;width:70px;height:70px;border-radius:50%;background:var(--yellow);box-shadow:0 0 55px #ffd34d99}.ground{position:absolute;bottom:-80px;left:-10%;width:120%;height:160px;background:#102718;border-radius:50%}
+.panel{position:absolute;width:270px;height:155px;left:50%;top:55%;transform:translate(-50%,-50%) rotate(-8deg) skewY(-5deg);border:5px solid #93a8b2;background:repeating-linear-gradient(90deg,#17547c 0 42px,#08263b 43px 46px),repeating-linear-gradient(0deg,transparent 0 43px,#08263b 44px 47px);box-shadow:0 25px 35px #0009}
+.base{position:absolute;width:28px;height:90px;background:#596c62;left:50%;top:66%;transform:translateX(-50%);border-radius:8px}.ray{position:absolute;width:150px;height:2px;background:#ffd34d77;right:100px;top:105px;transform:rotate(18deg)}
+section{padding:85px 0}.section-head{text-align:center;max-width:760px;margin:0 auto 45px}.section-head h2{font-size:40px;line-height:1.15;margin-bottom:12px}.section-head p{color:var(--muted)}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:23px}.icon{font-size:31px}.card h3{margin:9px 0 7px}.card p,.card li{color:var(--muted);font-size:14px}.card ul{padding-left:18px}
+.problem{background:#091a0f}.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.bigcard{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:30px}.bigcard h3{font-size:25px;margin-bottom:12px}.bigcard li{margin:9px 0;color:var(--muted);list-style:none}.bigcard li::before{content:"•";color:var(--yellow);margin-right:9px}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.step{position:relative;background:var(--panel);border:1px solid var(--line);padding:25px;border-radius:17px}.step b{color:var(--yellow);font-size:12px}.step h3{margin:8px 0}.step p{font-size:14px;color:var(--muted)}
+.dashboard{background:#091a0f}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:20px}.metric{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:22px}.metric small{color:var(--muted)}.metric .num{font-size:31px;font-weight:900;margin:5px 0}.unit{font-size:13px;color:#8ea493}
+.dash{display:grid;grid-template-columns:1.4fr .9fr;gap:18px}.box{background:var(--panel);border:1px solid var(--line);border-radius:19px;padding:23px}.box h3{margin-bottom:15px}.chart{height:235px;background:#08150c;border-radius:13px;padding:12px;display:flex;align-items:flex-end;gap:7px}.bar{flex:1;background:var(--green);border-radius:5px 5px 0 0;min-height:18px;animation:glow 1.8s infinite alternate}.bar:nth-child(2n){background:#b8e968}.switch{display:flex;gap:8px;margin:15px 0}.switch button{flex:1;padding:11px;border-radius:9px;border:1px solid var(--line);background:#0a180e;color:#dcebdd;cursor:pointer}.switch .active{background:var(--green);color:#061109;font-weight:900}.controlgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.control{background:#09170d;padding:14px;border-radius:11px;color:var(--muted);font-size:13px}.control strong{display:block;color:var(--text);font-size:19px;margin-top:3px}
+.tech{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}.diagram{background:#08170d;border:1px solid var(--line);border-radius:20px;padding:25px}.node{background:#102719;border:1px solid #3b6544;border-radius:11px;padding:13px;text-align:center;margin:10px auto;max-width:230px}.arrow{text-align:center;color:var(--yellow)}
+.applications{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.app{padding:25px;border-radius:17px;background:var(--panel);border:1px solid var(--line)}.app h3{margin:8px 0}.app p{color:var(--muted);font-size:14px}
+.business{background:#091a0f}.bizgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.biz{background:var(--panel);border:1px solid var(--line);padding:22px;border-radius:16px}.biz h3{color:var(--green);font-size:18px;margin-bottom:7px}.biz p{font-size:14px;color:var(--muted)}
+.future{display:grid;grid-template-columns:1fr 1fr;gap:20px}.future .bigcard{min-height:100%}.future li{color:var(--muted);margin:8px 0}
+.cta{text-align:center;background:linear-gradient(135deg,#12351d,#07140d);padding:90px 0}.cta p{max-width:680px;margin:12px auto 25px;color:var(--muted)}
+footer{border-top:1px solid #1d3a27;padding:30px 0;text-align:center;color:#829887;font-size:13px}
+.note{font-size:12px;color:#849789;margin-top:14px}.tag{display:inline-block;background:#182d1d;color:#9ee9a7;border:1px solid #31543a;border-radius:20px;padding:4px 9px;font-size:11px;margin:3px}
+@keyframes glow{from{opacity:.65}to{opacity:1}}
+@media(max-width:950px){nav ul{display:none}.hero,.problem-grid,.dash,.tech,.future{grid-template-columns:1fr}.grid4,.metrics{grid-template-columns:repeat(2,1fr)}.flow{grid-template-columns:repeat(2,1fr)}.applications{grid-template-columns:repeat(2,1fr)}.bizgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){section{padding:65px 0}.grid4,.metrics,.flow,.applications,.bizgrid{grid-template-columns:1fr}.scene{height:270px}.panel{width:220px;height:125px}h1{letter-spacing:-1px}}
+</style>
+</head>
+<body>
+<nav><div class="container navin"><div class="logo">Sun<span>Sync</span> ☀</div><ul>
+<li><a href="#home">Home</a></li><li><a href="#problem">Problem</a></li><li><a href="#solution">Solution</a></li><li><a href="#technology">Technology</a></li><li><a href="#dashboard">Dashboard</a></li><li><a href="#startup">Startup</a></li><li><a href="#future">Future</a></li><li><a href="#contact">Contact</a></li>
+</ul></div></nav>
+
+<main>
+<section class="hero" id="home"><div class="container" style="display:contents"><div>
+<div class="badge">SMART SOLAR TECHNOLOGY • PROTOTYPE</div>
+<h1>Smart Solar.<br><span>Smarter Tracking.</span></h1>
+<p>SunSync is an automatic solar-panel tracking concept designed to adjust panel orientation toward stronger sunlight, monitor performance, and make solar-energy systems smarter.</p>
+<a class="btn" href="#dashboard">View Dashboard</a><a class="btn alt" href="#solution">Explore SunSync</a>
+<div style="margin-top:18px"><span class="tag">Automatic</span><span class="tag">Sensor-based</span><span class="tag">IoT-ready</span><span class="tag">Renewable Energy</span></div>
+</div>
+<div class="visual"><div class="vtop"><strong>SunSync System</strong><span class="online"><i class="dot"></i>ONLINE DEMO</span></div><div class="scene"><div class="sun"></div><div class="ray"></div><div class="ground"></div><div class="base"></div><div class="panel"></div></div><div style="display:flex;justify-content:space-between;margin-top:12px;color:#b7c9bb;font-size:13px"><span>Tracking: <b id="heroMode">Automatic</b></span><span>Angle: <b id="heroAngle">72°</b></span></div></div></div></section>
+
+<section class="problem" id="problem"><div class="container"><div class="section-head"><h2>The Problem</h2><p>Solar panels receive changing sunlight throughout the day, while many installations use a fixed orientation.</p></div>
+<div class="problem-grid"><div class="bigcard"><h3>Traditional fixed panels</h3><p style="color:var(--muted)">A fixed panel remains in one orientation after installation. As the Sun's apparent position changes, the angle of incoming sunlight changes too.</p></div>
+<div class="bigcard"><h3>Why automation matters</h3><ul><li>Fixed orientation</li><li>Changing sunlight direction</li><li>Manual adjustment is impractical</li><li>Energy collection varies throughout the day</li><li>Advanced tracking can be complex or expensive</li></ul></div></div></div></section>
+
+<section id="solution"><div class="container"><div class="section-head"><h2>Our Solution</h2><p>SunSync combines light sensing, control logic and motorized movement in one smart tracking concept.</p></div>
+<div class="grid4"><div class="card"><div class="icon">☀️</div><h3>Detect</h3><p>Light sensors measure relative sunlight intensity from different directions.</p></div><div class="card"><div class="icon">🧠</div><h3>Analyze</h3><p>A controller compares sensor readings and determines the preferred direction.</p></div><div class="card"><div class="icon">⚙️</div><h3>Move</h3><p>A motor mechanism changes the panel orientation toward stronger light.</p></div><div class="card"><div class="icon">📊</div><h3>Monitor</h3><p>A dashboard can display panel angle, voltage, current, power and other data.</p></div></div></div></section>
+
+<section id="how"><div class="container"><div class="section-head"><h2>How SunSync Works</h2><p>A simple closed-loop tracking process.</p></div><div class="flow">
+<div class="step"><b>01 • DETECT</b><h3>Sense sunlight</h3><p>Multiple light sensors detect relative intensity from different directions.</p></div>
+<div class="step"><b>02 • COMPARE</b><h3>Analyze readings</h3><p>The controller compares sensor values to identify the direction with stronger light.</p></div>
+<div class="step"><b>03 • MOVE</b><h3>Adjust panel</h3><p>The motor driver commands the motor mechanism to change the panel angle.</p></div>
+<div class="step"><b>04 • RECHECK</b><h3>Keep tracking</h3><p>The system checks again and repeats the process as sunlight direction changes.</p></div>
+</div></div></section>
+
+<section id="technology"><div class="container"><div class="section-head"><h2>SunSync Technology</h2><p>Possible hardware architecture for a real prototype.</p></div><div class="tech">
+<div class="diagram"><div class="node">☀️ Solar Panel</div><div class="arrow">↓</div><div class="node">🔆 Light + Electrical Sensors</div><div class="arrow">↓</div><div class="node">🧠 ESP32 / Microcontroller</div><div class="arrow">↓</div><div class="node">🔌 Motor Driver</div><div class="arrow">↓</div><div class="node">⚙️ Motors → Panel Movement</div></div>
+<div class="grid4" style="grid-template-columns:1fr 1fr"><div class="card"><b>🔆 LDR / Light Sensors</b><p>Detect relative light intensity.</p></div><div class="card"><b>🧠 Controller</b><p>Processes sensor readings and control logic.</p></div><div class="card"><b>⚙️ Motors</b><p>Provide controlled panel movement.</p></div><div class="card"><b>⚡ Electrical Sensors</b><p>Measure voltage, current and power.</p></div><div class="card"><b>🌡 Temperature Sensor</b><p>Can monitor operating temperature.</p></div><div class="card"><b>📡 Connectivity</b><p>Future IoT versions can send data to the web.</p></div></div></div></div></section>
+
+<section class="dashboard" id="dashboard"><div class="container"><div class="section-head"><h2>SunSync Live Dashboard</h2><p>These values are simulated demo data. Real sensor readings can replace them after the hardware prototype is connected.</p></div>
+<div class="metrics"><div class="metric"><small>☀ Sunlight intensity</small><div class="num" id="lux">82</div><span class="unit">% relative intensity</span></div><div class="metric"><small>⚡ Voltage</small><div class="num" id="voltage">18.6</div><span class="unit">V</span></div><div class="metric"><small>🔋 Current</small><div class="num" id="current">4.2</div><span class="unit">A</span></div><div class="metric"><small>🔌 Power</small><div class="num" id="power">78.1</div><span class="unit">W</span></div></div>
+<div class="dash"><div class="box"><h3>Energy generation — demo</h3><div class="chart" id="chart"></div><div style="display:flex;justify-content:space-between;margin-top:12px;color:var(--muted);font-size:13px"><span>Estimated daily energy</span><strong id="energy" style="color:var(--text)">2.84 kWh</strong></div></div>
+<div class="box"><h3>Panel controls</h3><div class="controlgrid"><div class="control">📐 Panel angle<strong id="angle">72°</strong></div><div class="control">🌡 Temperature<strong id="temp">31°C</strong></div><div class="control">🧭 Direction<strong id="direction">South-East</strong></div><div class="control">🤖 Motor status<strong id="motor">Active</strong></div></div><div class="switch"><button id="autoBtn" class="active">Automatic</button><button id="manualBtn">Manual</button></div><p id="modeText" class="note">Automatic tracking is enabled in this demonstration.</p></div></div></div></section>
+
+<section><div class="container"><div class="section-head"><h2>Single-Axis vs Dual-Axis</h2><p>Different mechanisms can be considered depending on the application.</p></div><div class="problem-grid"><div class="bigcard"><h3>Single-axis tracking</h3><ul><li>Simpler mechanical design</li><li>Lower movement complexity</li><li>Good starting point for a prototype</li><li>Tracks primarily around one axis</li></ul></div><div class="bigcard"><h3>Dual-axis tracking</h3><ul><li>Moves around two axes</li><li>Greater directional flexibility</li><li>More mechanical complexity</li><li>Potential future upgrade for SunSync</li></ul></div></div></div></section>
+
+<section><div class="container"><div class="section-head"><h2>Applications</h2><p>Potential use cases for SunSync technology.</p></div><div class="applications">
+<div class="app">🏠<h3>Homes</h3><p>Automatic orientation for suitable residential solar installations.</p></div>
+<div class="app">🌾<h3>Agriculture</h3><p>Potential applications for solar-powered farm equipment and irrigation.</p></div>
+<div class="app">🏫<h3>Schools & Colleges</h3><p>A practical platform for teaching renewable energy, sensors and automation.</p></div>
+<div class="app">🏢<h3>Small Businesses</h3><p>Potential tracking solutions for suitable commercial installations.</p></div>
+<div class="app">🌍<h3>Remote Locations</h3><p>Potentially useful where automated orientation can reduce manual intervention.</p></div>
+<div class="app">🔬<h3>Research & Prototyping</h3><p>A flexible platform for testing solar tracking algorithms and hardware.</p></div>
+</div></div></section>
+
+<section class="business" id="startup"><div class="container"><div class="section-head"><h2>SunSync as a Startup</h2><p>A possible business model built around affordable solar tracking and monitoring.</p></div>
+<div class="bizgrid"><div class="biz"><h3>Hardware Sales</h3><p>Sell complete tracking mechanisms or controller kits.</p></div><div class="biz"><h3>Installation</h3><p>Provide setup and commissioning services.</p></div><div class="biz"><h3>Maintenance</h3><p>Offer maintenance and replacement services.</p></div><div class="biz"><h3>Smart Monitoring</h3><p>Offer optional web or mobile monitoring features.</p></div><div class="biz"><h3>B2B Solutions</h3><p>Work with farms, schools, businesses and solar installers.</p></div><div class="biz"><h3>Prototype Kits</h3><p>Educational kits for schools, competitions and makers.</p></div><div class="biz"><h3>Target Customers</h3><p>Solar owners, farmers, educational institutions and small businesses.</p></div><div class="biz"><h3>Potential Differentiation</h3><p>Affordable, modular, sensor-based and monitoring-ready design.</p></div></div></div></section>
+
+<section><div class="container"><div class="section-head"><h2>Prototype Architecture</h2><p>The long-term system can connect physical hardware to the SunSync web dashboard.</p></div><div class="bigcard"><div style="text-align:center;font-size:15px;color:var(--muted)">
+<div class="node">☀️ Solar Panel</div><div class="arrow">↓</div><div class="node">🔆 Light / Voltage / Current Sensors</div><div class="arrow">↓</div><div class="node">🧠 ESP32 / Controller</div><div class="arrow">↓</div><div class="node">⚙️ Motor Driver → Motors → Panel</div><div class="arrow">↓</div><div class="node">📡 Internet / API → ☁️ SunSync Dashboard</div>
+</div></div></div></section>
+
+<section id="future"><div class="container"><div class="section-head"><h2>SunSync 2.0 — Future Development</h2><p>Features that can be added after the core prototype is validated.</p></div><div class="future"><div class="bigcard"><h3>Future Features</h3><ul><li>📱 Mobile application</li><li>☁️ Cloud monitoring</li><li>📊 Historical energy data</li><li>🔔 Fault notifications</li><li>🌦️ Weather integration</li><li>🤖 Improved tracking algorithms</li><li>🔋 Battery monitoring</li><li>🌐 IoT connectivity</li><li>📈 Performance analytics</li></ul></div><div class="bigcard"><h3>Safety & Reliability</h3><p style="color:var(--muted)">A real-world product should be engineered and tested for safe operation. Possible protections include:</p><ul><li>Motor movement limits</li><li>Emergency stop</li><li>Over-current protection</li><li>Mechanical limit switches</li><li>Weather-resistant enclosure</li><li>Automatic safe/return position</li><li>Protection during excessive wind conditions</li></ul></div></div></div></section>
+
+<section><div class="container"><div class="section-head"><h2>What the Dashboard Means</h2><p>Example calculation used by the demo.</p></div><div class="problem-grid"><div class="bigcard"><h3>Power calculation</h3><p style="font-size:25px;color:var(--green);font-weight:900;margin:15px 0">P = V × I</p><p style="color:var(--muted)">For example, if voltage is 18.6 V and current is 4.2 A:</p><p style="font-size:20px;margin-top:10px">18.6 × 4.2 ≈ <b>78.1 W</b></p></div><div class="bigcard"><h3>Important note</h3><p style="color:var(--muted)">The current website uses simulated values for demonstration. It does not claim that these numbers are measurements from a physical SunSync system. Real values require sensors, firmware, a controller and a data connection.</p></div></div></div></section>
+
+<section class="cta" id="contact"><div class="container"><h2>Build the future of solar.</h2><p>SunSync — a startup concept focused on accessible automatic solar tracking, smart monitoring and renewable-energy technology.</p><a class="btn" href="mailto:your-email@example.com">Contact SunSync</a><p class="note">Replace the email address with your real startup email before publishing.</p></div></section>
+</main>
+
+<footer><div class="container">© 2026 SunSync • Smart Solar. Smarter Tracking. • Prototype Website</div></footer>
+
+<script>
+const chart=document.getElementById("chart");
+[26,32,41,49,58,66,74,82,90,94,86,72].forEach((h,i)=>{let b=document.createElement("div");b.className="bar";b.style.height=h+"%";b.title=(8+i)+":00";chart.appendChild(b)});
+let automatic=true, angle=72;
+function update(){
+ const lux=Math.round(78+Math.random()*19), voltage=(17.7+Math.random()*2.2).toFixed(1), current=(3.6+Math.random()*1.3).toFixed(1);
+ const power=(voltage*current).toFixed(1), temp=Math.round(29+Math.random()*7);
+ if(automatic)angle=Math.round(55+Math.random()*35);
+ document.getElementById("lux").textContent=lux;document.getElementById("voltage").textContent=voltage;
+ document.getElementById("current").textContent=current;document.getElementById("power").textContent=power;
+ document.getElementById("angle").textContent=angle+"°";document.getElementById("heroAngle").textContent=angle+"°";
+ document.getElementById("temp").textContent=temp+"°C";document.getElementById("energy").textContent=(2.6+Math.random()*.5).toFixed(2)+" kWh";
+ document.getElementById("direction").textContent=angle>75?"South":"South-East";
+ document.getElementById("motor").textContent=automatic?"Active":"Manual";
+}
+document.getElementById("autoBtn").onclick=()=>{automatic=true;autoBtn.classList.add("active");manualBtn.classList.remove("active");heroMode.textContent="Automatic";modeText.textContent="Automatic tracking is enabled in this demonstration."};
+document.getElementById("manualBtn").onclick=()=>{automatic=false;manualBtn.classList.add("active");autoBtn.classList.remove("active");heroMode.textContent="Manual";motor.textContent="Manual";modeText.textContent="Manual mode selected. A real prototype could connect this control to motor commands."};
+update();setInterval(update,3000);
+</script>
+</body>
+</html>
